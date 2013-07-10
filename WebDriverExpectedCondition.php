@@ -125,7 +125,7 @@ class WebDriverExpectedCondition {
    * @return bool Whether the text is presented.
    */
   public static function textToBePresentInElement(
-      WebDriverBy $by, string $text) {
+      WebDriverBy $by, $text) {
     return new WebDriverExpectedCondition(
       function ($driver) use ($by, $text) {
         try {
@@ -147,7 +147,7 @@ class WebDriverExpectedCondition {
    * @return bool Whether the text is presented.
    */
   public static function textToBePresentInElementValue(
-      WebDriverBy $by, string $text) {
+      WebDriverBy $by, $text) {
     return new WebDriverExpectedCondition(
       function ($driver) use ($by, $text) {
         try {
@@ -190,7 +190,7 @@ class WebDriverExpectedCondition {
    * @return bool Whether the text is found in the element located.
    */
   public static function invisibilityOfElementWithText(
-      WebDriverBy $by, string $text) {
+      WebDriverBy $by, $text) {
     return new WebDriverExpectedCondition(
       function ($driver) use ($by, $text) {
         try {
@@ -299,7 +299,7 @@ class WebDriverExpectedCondition {
    * @return bool Whether the element is selected.
    */
   public static function elementSelectionStateToBe(
-      $element_or_by, bool $selected) {
+      $element_or_by, $selected) {
     if ($element_or_by instanceof WebDriverElement) {
       return new WebDriverExpectedCondition(
         function ($driver) use ($element_or_by, $selected) {
