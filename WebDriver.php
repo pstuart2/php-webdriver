@@ -138,6 +138,15 @@ class WebDriver {
     $this->sessionID = null;
   }
 
+	/**
+	 * Gets a screen shot.
+	 *
+	 * @return string
+	 */
+	public function getScreenshot() {
+		return base64_decode($this->execute('screenshot')['value']);
+	}
+
   /**
    * Inject a snippet of JavaScript into the page for execution in the context
    * of the currently selected frame. The executed script is assumed to be
