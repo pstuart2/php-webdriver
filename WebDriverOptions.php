@@ -138,6 +138,19 @@ class WebDriverOptions {
     );
   }
 
+	/**
+	 * Returns an alert window.
+	 *
+	 * @return WebDriverAlert
+	 * @see WebDriverWindow
+	 */
+	public function alert() {
+		return new WebDriverAlert(
+			$this->executor,
+			$this->sessionID
+		);
+	}
+
   private function execute($name, array $params = array()) {
     $command = array(
       'sessionId' => $this->sessionID,
