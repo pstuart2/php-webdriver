@@ -13,19 +13,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-require_once('Driver.php');
-require_once('By.php');
-require_once('Dimension.php');
-require_once('Element.php');
+require_once('WebDriver.php');
+require_once('WebDriverBy.php');
+require_once('WebDriverDimension.php');
+require_once('WebDriverElement.php');
 require_once('WebDriverExceptions.php');
-require_once('ExpectedCondition.php');
-require_once('Navigation.php');
-require_once('DriverOptions.php');
-require_once('Point.php');
-require_once('Select.php');
-require_once('Timeouts.php');
-require_once('Wait.php');
-require_once('Window.php');
+require_once('WebDriverExpectedCondition.php');
+require_once('WebDriverNavigation.php');
+require_once('WebDriverOptions.php');
+require_once('WebDriverPoint.php');
+require_once('WebDriverSelect.php');
+require_once('WebDriverTimeouts.php');
+require_once('WebDriverWait.php');
+require_once('WebDriverWindow.php');
 require_once('remote/WebDriverBrowserType.php');
 require_once('remote/WebDriverCapabilityType.php');
 require_once('remote/WebDriverCommandExecutor.php');
