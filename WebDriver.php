@@ -161,7 +161,7 @@ class WebDriver {
 	 * @return string
 	 */
 	public function getScreenshot() {
-		return base64_decode($this->execute('screenshot')['value']);
+		return base64_decode($this->execute('screenshot'));
 	}
 
   /**
