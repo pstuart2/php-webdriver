@@ -15,7 +15,7 @@ class WebDriverAlert {
 	}
 
 	public function getText() {
-		return $this->execute('getAlertText')['value'];
+		return $this->execute('getAlertText');
 	}
 
 	public function sendKeys($value) {
