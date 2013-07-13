@@ -19,7 +19,10 @@ namespace facebook\Selenium\phpWebDriver;
  */
 class WebDriverOptions {
 
-  protected $executor;
+	/**
+	 * @var WebDriverCommandExecutor
+	 */
+	protected $executor;
   protected $sessionID;
 
   public function __construct($executor, $session_id) {
@@ -149,6 +152,15 @@ class WebDriverOptions {
 			$this->executor,
 			$this->sessionID
 		);
+	}
+
+	/**
+	 * Set the number of milliseconds to delay between commands.
+	 * 
+	 * @param int $ms
+	 */
+	public function setCommandDelay($ms) {
+		$this->executor->setCommandWaitMs($ms);
 	}
 
   private function execute($name, array $params = array()) {

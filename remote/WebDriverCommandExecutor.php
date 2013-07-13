@@ -16,6 +16,27 @@ namespace facebook\Selenium\phpWebDriver;
 
 class WebDriverCommandExecutor {
 
+	/**
+	 * Number of milliseconds to wait between commands.
+	 *
+	 * @var int
+	 */
+	private $commandWaitMs = 0;
+
+	/**
+	 * Get the number of milliseconds to wait between commands.
+	 *
+	 * @return int
+	 */
+	public function getCommandWaitMs() { return $this->commandWaitMs; }
+
+	/**
+	 * Set the number of milliseconds to wait between commands.
+	 *
+	 * @param int $ms
+	 */
+	public function setCommandWaitMs($ms) { $this->commandWaitMs = $ms; }
+
   /**
    * @see
    *   http://code.google.com/p/selenium/wiki/JsonWireProtocol#Command_Reference
@@ -91,6 +112,8 @@ class WebDriverCommandExecutor {
     if ($command['name'] == 'newSession') {
       $extra_opts[CURLOPT_FOLLOWLOCATION] = true;
     }
+
+	  if ($this->commandWaitMs > 0) { usleep($this->commandWaitMs); }
 
     return $this->curl($raw['method'], $raw['url'], $command, $extra_opts);
   }
