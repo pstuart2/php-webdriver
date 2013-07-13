@@ -40,6 +40,7 @@ class WebDriverAlert {
 			'name' => $name,
 			'parameters' => $params,
 		);
-		return $this->executor->execute($command);
+		$raw = $this->executor->execute($command);
+		return $raw['value'];
 	}
 }
