@@ -90,7 +90,6 @@ class WebDriverCommandExecutor {
     'submitElement' =>     array('method' => 'POST', 'url' => '/session/:sessionId/element/:id/submit'),
 
 
-	  'screenshot' => array('method' => 'GET', 'url' => '/session/:sessionId/screenshot'),
 	  'acceptAlert' => array('method' => 'POST', 'url' => '/session/:sessionId/accept_alert'),
 	  'dismissAlert' => array('method' => 'POST', 'url' => '/session/:sessionId/dismiss_alert'),
 	  'getAlertText' => array('method' => 'GET', 'url' => '/session/:sessionId/alert_text'),
