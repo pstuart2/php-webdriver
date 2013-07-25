@@ -15,6 +15,8 @@
 
 namespace facebook\Selenium\phpWebDriver;
 
+use \Exception;
+
 class WebDriver {
 
   protected $executor;
