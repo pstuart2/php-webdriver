@@ -205,7 +205,8 @@ class WebDriver {
    * @return string The screenshot in PNG format.
    */
   public function takeScreenshot($save_as = null) {
-    $screenshot = base64_decode($this->execute('takeScreenshot')['value']);
+	  $result = $this->execute('takeScreenshot');
+    $screenshot = base64_decode($result['value']);
     if ($save_as) {
       file_put_contents($save_as, $screenshot);
     }
