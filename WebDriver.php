@@ -27,6 +27,8 @@ class WebDriver {
       $url = 'http://localhost:4444/wd/hub',
       $desired_capabilities = array()) {
 
+    $url = preg_replace('#/+$#', '', $url);
+
     $this->executor = new WebDriverCommandExecutor($url);
 
     $params = array(
@@ -204,6 +206,20 @@ class WebDriver {
     } else {
       return $response['value'];
     }
+  }
+
+  /**
+   * Take a screenshot of the current page.
+   *
+   * @param $save_as The path of the screenshot to be saved.
+   * @return string The screenshot in PNG format.
+   */
+  public function takeScreenshot($save_as = null) {
+    $screenshot = base64_decode($this->execute('takeScreenshot')['value']);
+    if ($save_as) {
+      file_put_contents($save_as, $screenshot);
+    }
+    return $screenshot;
   }
 
   /**
