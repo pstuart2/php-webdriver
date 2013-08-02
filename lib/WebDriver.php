@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver;
+
+use \Exception;
+
 class WebDriver {
 
   protected $executor;
@@ -191,7 +195,7 @@ class WebDriver {
   /**
    * Take a screenshot of the current page.
    *
-   * @param $save_as The path of the screenshot to be saved.
+   * @param string $save_as The path of the screenshot to be saved.
    * @return string The screenshot in PNG format.
    */
   public function takeScreenshot($save_as = null) {
