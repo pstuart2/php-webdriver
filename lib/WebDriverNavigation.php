@@ -26,11 +26,9 @@ namespace facebook\Selenium\phpWebDriver;
 class WebDriverNavigation {
 
   protected $executor;
-  protected $sessionID;
 
-  public function __construct($executor, $session_id) {
+  public function __construct(WebDriverCommandExecutor $executor) {
     $this->executor = $executor;
-    $this->sessionID = $session_id;
   }
 
   /**
@@ -39,7 +37,7 @@ class WebDriverNavigation {
    * @return WebDriverNavigation The instance.
    */
   public function back() {
-    $this->execute('goBack');
+    $this->executor->execute('goBack');
     return $this;
   }
 
@@ -49,7 +47,7 @@ class WebDriverNavigation {
    * @return WebDriverNavigation The instance.
    */
   public function forward() {
-    $this->execute('goForward');
+    $this->executor->execute('goForward');
     return $this;
   }
 
@@ -59,7 +57,7 @@ class WebDriverNavigation {
    * @return WebDriverNavigation The instance.
    */
   public function refresh() {
-    $this->execute('refreshPage');
+    $this->executor->execute('refreshPage');
     return $this;
   }
 
@@ -70,16 +68,7 @@ class WebDriverNavigation {
    */
   public function to($url) {
     $params = array('url' => (string)$url);
-    $this->execute('get', $params);
+    $this->executor->execute('get', $params);
     return $this;
-  }
-
-  private function execute($name, array $params = array()) {
-    $command = array(
-      'sessionId' => $this->sessionID,
-      'name' => $name,
-      'parameters' => $params,
-    );
-    $this->executor->execute($command);
   }
 }

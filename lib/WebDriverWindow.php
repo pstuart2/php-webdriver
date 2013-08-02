@@ -20,11 +20,9 @@ namespace facebook\Selenium\phpWebDriver;
 class WebDriverWindow {
 
   protected $executor;
-  protected $sessionID;
 
-  public function __construct($executor, $session_id) {
+  public function __construct($executor) {
     $this->executor = $executor;
-    $this->sessionID = $session_id;
   }
 
   /**
@@ -34,10 +32,13 @@ class WebDriverWindow {
    * @return array The current window position.
    */
   public function getPosition() {
-    $position = $this->execute('getWindowPosition');
+    $position = $this->executor->execute(
+      'getWindowPosition',
+      array(':windowHandle' => 'current')
+    );
     return new WebDriverPoint(
-      $position['value']['x'],
-      $position['value']['y']
+      $position['x'],
+      $position['y']
     );
   }
 
@@ -48,10 +49,13 @@ class WebDriverWindow {
    * @return array The current window size.
    */
   public function getSize() {
-    $size = $this->execute('getWindowSize');
+    $size = $this->executor->execute(
+      'getWindowSize',
+      array(':windowHandle' => 'current')
+    );
     return new WebDriverDimension(
-      $size['value']['width'],
-      $size['value']['height']
+      $size['width'],
+      $size['height']
     );
   }
 
@@ -61,7 +65,10 @@ class WebDriverWindow {
    * @return WebDriverWindow The instance.
    */
   public function maximize() {
-    $this->execute('maximizeWindow');
+    $this->executor->execute(
+      'maximizeWindow',
+      array(':windowHandle' => 'current')
+    );
     return $this;
   }
 
@@ -77,8 +84,9 @@ class WebDriverWindow {
     $params = array(
       'width' => $size->getWidth(),
       'height' => $size->getHeight(),
+      ':windowHandle' => 'current',
     );
-    $this->execute('setWindowSize', $params);
+    $this->executor->execute('setWindowSize', $params);
     return $this;
   }
 
@@ -94,18 +102,9 @@ class WebDriverWindow {
     $params = array(
       'x' => $position->getX(),
       'y' => $position->getY(),
-    );
-    $this->execute('setWindowPosition', $params);
-    return $this;
-  }
-
-  private function execute($name, array $params = array()) {
-    $command = array(
-      'sessionId' => $this->sessionID,
       ':windowHandle' => 'current',
-      'name' => $name,
-      'parameters' => $params,
     );
-    return $this->executor->execute($command);
+    $this->executor->execute('setWindowPosition', $params);
+    return $this;
   }
 }

@@ -24,12 +24,16 @@ class WebDriverWait {
 
   protected $driver;
   protected $timeout;
+  protected $interval;
 
   public function __construct(
       WebDriver $driver,
-      int $timeout_in_second = null) {
+      $timeout_in_second = null,
+      $interval_in_millisecond = null) {
     $this->driver = $driver;
     $this->timeout = ($timeout_in_second) ? $timeout_in_second : 30;
+    $this->interval =
+      ($interval_in_millisecond) ? $interval_in_millisecond : 250;
   }
 
   /**
@@ -53,7 +57,7 @@ class WebDriverWait {
         if ($ret_val) {
           return $ret_val;
         } else {
-          usleep(250);
+          usleep($this->interval * 1000);
           continue;
         }
       } catch (NoSuchElementWebDriverError $e) {

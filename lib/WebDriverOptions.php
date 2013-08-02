@@ -12,22 +12,16 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-namespace facebook\Selenium\phpWebDriver;
 
 /**
  * Managing stuff you would do in a browser.
  */
 class WebDriverOptions {
 
-	/**
-	 * @var WebDriverCommandExecutor
-	 */
-	protected $executor;
-  protected $sessionID;
+  protected $executor;
 
-  public function __construct($executor, $session_id) {
+  public function __construct(WebDriverCommandExecutor $executor) {
     $this->executor = $executor;
-    $this->sessionID = $session_id;
   }
 
   /**
@@ -51,7 +45,7 @@ class WebDriverOptions {
    */
   public function addCookie(array $cookie) {
     $this->validate($cookie);
-    $this->execute('addCookie', array('cookie' => $cookie));
+    $this->executor->execute('addCookie', array('cookie' => $cookie));
     return $this;
   }
 
@@ -61,7 +55,7 @@ class WebDriverOptions {
    * @return WebDriverOptions The current instance.
    */
   public function deleteAllCookies() {
-    $this->execute('deleteAllCookies');
+    $this->executor->execute('deleteAllCookies');
     return $this;
   }
 
@@ -71,7 +65,7 @@ class WebDriverOptions {
    * @return WebDriverOptions The current instance.
    */
   public function deleteCookieNamed($name) {
-    $this->execute('deleteCookie', array(':name' => $name));
+    $this->executor->execute('deleteCookie', array(':name' => $name));
     return $this;
   }
 
@@ -97,10 +91,10 @@ class WebDriverOptions {
    * @return array The array of cookies presented.
    */
   public function getCookies() {
-    return $this->execute('getAllCookies');
+    return $this->executor->execute('getAllCookies');
   }
 
-  protected function validate(array $cookie) {
+  private function validate(array $cookie) {
     if (!isset($cookie['name']) ||
         $cookie['name'] === '' ||
         strpos($cookie['name'], ';') !== false) {
@@ -125,7 +119,7 @@ class WebDriverOptions {
    * @return WebDriverTimeouts
    */
   public function timeouts() {
-    return new WebDriverTimeouts($this->executor, $this->sessionID);
+    return new WebDriverTimeouts($this->executor);
   }
 
   /**
@@ -135,41 +129,6 @@ class WebDriverOptions {
    * @see WebDriverWindow
    */
   public function window() {
-    return new WebDriverWindow(
-      $this->executor,
-      $this->sessionID
-    );
-  }
-
-	/**
-	 * Returns an alert window.
-	 *
-	 * @return WebDriverAlert
-	 * @see WebDriverWindow
-	 */
-	public function alert() {
-		return new WebDriverAlert(
-			$this->executor,
-			$this->sessionID
-		);
-	}
-
-	/**
-	 * Set the number of milliseconds to delay between commands.
-	 * 
-	 * @param int $ms
-	 */
-	public function setCommandDelay($ms) {
-		$this->executor->setCommandWaitMs($ms);
-	}
-
-  private function execute($name, array $params = array()) {
-    $command = array(
-      'sessionId' => $this->sessionID,
-      'name' => $name,
-      'parameters' => $params,
-    );
-    $raw = $this->executor->execute($command);
-    return $raw['value'];
+    return new WebDriverWindow($this->executor);
   }
 }
