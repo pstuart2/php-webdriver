@@ -56,13 +56,11 @@ class WebDriverWait {
         }
         if ($ret_val) {
           return $ret_val;
-        } else {
-          usleep($this->interval * 1000);
-          continue;
         }
       } catch (NoSuchElementWebDriverError $e) {
         $last_exception = $e;
       }
+      usleep($this->interval * 1000);
     }
 
     if ($last_exception) {

@@ -50,6 +50,20 @@ class WebDriverExpectedCondition {
   }
 
   /**
+   * An expectation for checking substring of a page Title.
+   *
+   * @param string title The expected substring of Title.
+   * @return bool True when in title, false otherwise.
+   */
+  public static function titleContains($title) {
+    return new WebDriverExpectedCondition(
+      function ($driver) use ($title) {
+        return strpos($driver->getTitle(), $title) !== false;
+      }
+    );
+  }
+
+  /**
    * An expectation for checking that an element is present on the DOM of a
    * page. This does not necessarily mean that the element is visible.
    *
@@ -319,6 +333,28 @@ class WebDriverExpectedCondition {
         }
       );
     }
+  }
+
+  /**
+   * An expectation for whether an alert() box is present.
+   *
+   * @return WebDriverAlert if alert() is present, null otherwise.
+   */
+  public static function alertIsPresent() {
+    return new WebDriverExpectedCondition(
+      function ($driver) {
+        try {
+          // Unlike the Java code, we get a WebDriverAlert object regardless
+          // of whether there is an alert.  Calling getText() will throw
+          // an exception if it is not really there.
+          $alert = $driver->switchTo()->alert();
+          $alert->getText();
+          return $alert;
+        } catch (NoAlertOpenWebDriverError $e) {
+          return null;
+        }
+      }
+    );
   }
 
   /**
