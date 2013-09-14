@@ -12,7 +12,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-namespace facebook\Selenium\phpWebDriver;
+
+namespace facebook\Selenium\phpWebDriver\remote;
+
+use \Exception;
+use facebook\Selenium\phpWebDriver\WebDriverCommandExecutor;
+use facebook\Selenium\phpWebDriver\WebDriverCurlException;
+use facebook\Selenium\phpWebDriver\WebDriverException;
 
 /**
  * Command executor talking to the standalone server via HTTP.

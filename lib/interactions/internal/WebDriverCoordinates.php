@@ -13,6 +13,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\interactions\internal;
+
+use facebook\Selenium\phpWebDriver\UnsupportedOperationException;
+use facebook\Selenium\phpWebDriver\WebDriverPoint as WebDriverLocation;
+
 /**
  * Interface representing basic mouse operations.
  */
@@ -37,7 +42,7 @@ class WebDriverCoordinates {
   }
 
   /**
-   * @return WebDriverPoint
+   * @return WebDriverLocation
    */
   public function onScreen() {
     throw new UnsupportedOperationException(
@@ -46,14 +51,14 @@ class WebDriverCoordinates {
   }
 
   /**
-   * @return WebDriverPoint
+   * @return WebDriverLocation
    */
   public function inViewPort() {
     return call_user_func($this->inViewPort);
   }
 
   /**
-   * @return WebDriverPoint
+   * @return WebDriverLocation
    */
   public function onPage() {
     return call_user_func($this->onPage);

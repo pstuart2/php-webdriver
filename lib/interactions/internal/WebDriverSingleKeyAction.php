@@ -13,6 +13,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\interactions\internal;
+
+use facebook\Selenium\phpWebDriver\WebDriverAction;
+use facebook\Selenium\phpWebDriver\WebDriverKeyboard;
+use facebook\Selenium\phpWebDriver\WebDriverMouse;
+use facebook\Selenium\phpWebDriver\internal\WebDriverLocatable;
+
 abstract class WebDriverSingleKeyAction
     extends WebDriverKeysRelatedAction
     implements WebDriverAction {

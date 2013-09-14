@@ -13,6 +13,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\support\events;
+
+use facebook\Selenium\phpWebDriver\WebDriver;
+use facebook\Selenium\phpWebDriver\WebDriverDispatcher;
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+use facebook\Selenium\phpWebDriver\WebDriverException;
+use facebook\Selenium\phpWebDriver\WebDriverBy;
+use facebook\Selenium\phpWebDriver\WebDriverWait;
+use facebook\Selenium\phpWebDriver\WebDriverTargetLocator;
+use facebook\Selenium\phpWebDriver\WebDriverOptions;
+
 class EventFiringWebDriver implements WebDriver {
 
   /**

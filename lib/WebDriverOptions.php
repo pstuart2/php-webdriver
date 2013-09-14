@@ -12,7 +12,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 namespace facebook\Selenium\phpWebDriver;
+
+use \InvalidArgumentException;
 
 /**
  * Managing stuff you would do in a browser.

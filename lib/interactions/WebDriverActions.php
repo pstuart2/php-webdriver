@@ -13,6 +13,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\interactions;
+
+use facebook\Selenium\phpWebDriver\WebDriver;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverClickAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverContextClickAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverClickAndHoldAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverDoubleClickAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverMouseMoveAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverButtonReleaseAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverMoveToOffsetAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverKeyDownAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverKeyUpAction;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverSendKeysAction;
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+
 /**
  * WebDriver action builder. It implements the builder pattern.
  */

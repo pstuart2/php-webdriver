@@ -13,6 +13,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\remote;
+
+use \Exception;
+use facebook\Selenium\phpWebDriver\WebDriver;
+use facebook\Selenium\phpWebDriver\WebDriverBy;
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+use facebook\Selenium\phpWebDriver\WebDriverKeyboard;
+use facebook\Selenium\phpWebDriver\WebDriverMouse;
+use facebook\Selenium\phpWebDriver\WebDriverWait;
+use facebook\Selenium\phpWebDriver\WebDriverOptions;
+use facebook\Selenium\phpWebDriver\WebDriverNavigation;
+use facebook\Selenium\phpWebDriver\WebDriverTargetLocator;
+use facebook\Selenium\phpWebDriver\interactions\WebDriverActions;
+
 class RemoteWebDriver implements WebDriver {
 
   protected $executor;

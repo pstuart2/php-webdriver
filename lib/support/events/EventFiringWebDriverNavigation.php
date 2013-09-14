@@ -13,6 +13,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\support\events;
+
+use facebook\Selenium\phpWebDriver\WebDriverNavigation;
+use facebook\Selenium\phpWebDriver\WebDriverDispatcher;
+use facebook\Selenium\phpWebDriver\WebDriverException;
+
 class EventFiringWebDriverNavigation {
 
   /**

@@ -15,12 +15,17 @@
 
 namespace facebook\Selenium\phpWebDriver;
 
+use facebook\Selenium\phpWebDriver\WebDriverCommandExecutor;
+
 /**
  * An abstraction allowing the driver to manipulate the javascript alerts
  */
 class WebDriverAlert {
 
-  protected $executor;
+	/**
+	 * @var WebDriverCommandExecutor
+	 */
+	protected $executor;
 
   public function __construct($executor) {
     $this->executor = $executor;

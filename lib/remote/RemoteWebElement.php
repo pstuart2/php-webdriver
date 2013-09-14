@@ -13,6 +13,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\remote;
+
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+use facebook\Selenium\phpWebDriver\internal\WebDriverLocatable;
+use facebook\Selenium\phpWebDriver\WebDriverBy;
+use facebook\Selenium\phpWebDriver\WebDriverPoint;
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverCoordinates;
+use facebook\Selenium\phpWebDriver\WebDriverDimension;
+use facebook\Selenium\phpWebDriver\WebDriverKeys;
+
 /**
  * Represents an HTML element.
  */
@@ -121,7 +131,7 @@ class RemoteWebElement implements WebDriverElement, WebDriverLocatable {
   /**
    * Get the location of element relative to the top-left corner of the page.
    *
-   * @return WebDriverLocation The location of the element.
+   * @return WebDriverPoint The location of the element.
    */
   public function getLocation() {
     $location = $this->executor->execute(
@@ -135,7 +145,7 @@ class RemoteWebElement implements WebDriverElement, WebDriverLocatable {
    * Try scrolling the element into the view port and return the location of
    * element relative to the top-left corner of the page afterwards.
    *
-   * @return WebDriverLocation The location of the element.
+   * @return WebDriverPoint The location of the element.
    */
   public function getLocationOnScreenOnceScrolledIntoView() {
     $location = $this->executor->execute(
