@@ -22,7 +22,7 @@ use facebook\Selenium\phpWebDriver\WebDriverBy;
 use facebook\Selenium\phpWebDriver\WebDriverDimension;
 use facebook\Selenium\phpWebDriver\WebDriverPoint as WebDriverLocation;
 
-class EventFiringWebElement implements WebDriverElement {
+class EventFiringWebElement implements WebDriverElement, WebDriverLocatable {
 
   /**
    * @var WebDriverElement
