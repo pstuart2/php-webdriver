@@ -13,6 +13,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\interactions;
+
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverDoubleTapAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverDownAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverFlickAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverFlickFromElementAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverLongPressAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverMoveAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverScrollAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverScrollFromElementAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverTapAction;
+use facebook\Selenium\phpWebDriver\interactions\touch\WebDriverUpAction;
+use facebook\Selenium\phpWebDriver\WebDriver;
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+use facebook\Selenium\phpWebDriver\WebDriverKeyboard;
+use facebook\Selenium\phpWebDriver\WebDriverMouse;
+
 /**
  * WebDriver action builder for touch events
  */

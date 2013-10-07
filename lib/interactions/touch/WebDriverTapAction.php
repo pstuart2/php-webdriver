@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\interactions\touch;
+
+use facebook\Selenium\phpWebDriver\WebDriverAction;
+
 class WebDriverTapAction
   extends WebDriverTouchAction
   implements WebDriverAction {

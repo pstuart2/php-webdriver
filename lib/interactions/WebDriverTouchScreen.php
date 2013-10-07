@@ -13,6 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\interactions;
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+
 /**
  * Interface representing touch screen operations.
  */

@@ -13,6 +13,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+namespace facebook\Selenium\phpWebDriver\remote;
+
+use facebook\Selenium\phpWebDriver\WebDriverElement;
+use facebook\Selenium\phpWebDriver\interactions\WebDriverTouchScreen;
+
 /**
  * Execute touch commands for RemoteWebDriver.
  */

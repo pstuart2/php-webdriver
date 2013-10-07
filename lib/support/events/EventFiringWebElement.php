@@ -15,6 +15,8 @@
 
 namespace facebook\Selenium\phpWebDriver\support\events;
 
+use facebook\Selenium\phpWebDriver\interactions\internal\WebDriverCoordinates;
+use facebook\Selenium\phpWebDriver\internal\WebDriverLocatable;
 use facebook\Selenium\phpWebDriver\WebDriverElement;
 use facebook\Selenium\phpWebDriver\WebDriverDispatcher;
 use facebook\Selenium\phpWebDriver\WebDriverException;
@@ -334,4 +336,12 @@ class EventFiringWebElement implements WebDriverElement, WebDriverLocatable {
     );
     throw $exception;
   }
+
+	/**
+	 * @return WebDriverCoordinates
+	 */
+	public function getCoordinates()
+	{
+		// TODO: Implement getCoordinates() method.
+	}
 }
